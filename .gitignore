@@ -163,3 +163,4 @@ cython_debug/
 *.json
 *.pcap
 env.py
+*.csv
