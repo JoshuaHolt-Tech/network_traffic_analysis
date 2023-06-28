@@ -167,3 +167,4 @@ env.py
 cvelistV5-main/
 csv_files/
 pcap_files/
+.virtual_documents/
