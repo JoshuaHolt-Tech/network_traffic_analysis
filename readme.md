@@ -9,7 +9,7 @@ On Monday, only normal user activities were recorded. From Tuesday to Friday, bo
 Associated research paper: https://www.scitepress.org/papers/2018/66398/66398.pdf
 
 # Goal:
-Analyze network traffic to detect any anomalies or suspicious activities.
+Analyze network traffic to detect any anomalies, indicators of compromise or suspicious activities.
 
 # Acquire:
 Downloaded files from: https://www.unb.ca/cic/datasets/ids-2017.html
@@ -42,6 +42,14 @@ Five files in total:
 | URG Flag | A signal used to indicate that the data contained in the packet should be processed immediately |
 | CWE Flag | Not a standard flag in the TCP protocol, might be specific to the dataset, please check the dataset documentation for more details |
 | ECE Flag | A signal used to indicate network congestion (too much data being sent) and tells the sender to reduce the amount of data it's sending |
+| NS Flag | ECN-nonce - concealment protection. A mechanism that protects against accidental or malicious concealment of marked packets from the TCP sender. RFC 3540|
+| CWR Flag | Congestion Window Reduced flag is used to signal that the TCP sender has received a TCP segment with the ECE flag set and had reduced its congestion window size in response. RFC 3168 |
+| ECE Flag | ECN-Echo flag is used to indicate that the TCP peer is ECN capable during 3-way handshake (SYN, SYN-ACK), or to signal that a TCP segment was received with the CE flag in the IP header set. RFC 3168 |
+| TCP:RA Flag | RST, ACK combined indicate that the connection does not exist or is already closed, and that the received segment was in error. |
+| TCP:FA Flag | FIN, ACK combined flags indicate that the sender has finished sending data and is acknowledging the data received from the other side.|
+| TCP:PA Flag | PSH, ACK combined flags indicate that the sender wants to push the data to the receiving application immediately and is acknowledging the data received from the other side.|
+| TCP:S Flag | SYN flag is used to initiate a connection between hosts.|
+| TCP:SEC Flag | SYN, ECE, CWR combined flags are used during the initial handshake to indicate that the sender is ECN capable and has received a TCP segment with the ECE flag set, and had reduced its congestion window size in response.|
 
 ## Data Column Descriptions:
 | Feature |	Description |
