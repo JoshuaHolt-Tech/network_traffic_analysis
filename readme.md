@@ -1,18 +1,46 @@
-Network Traffic Analysis
+Network Traffic Analysis :satellite:
 
-# Abstract:
+# Abstract :book:
 
-This dataset was created using a system which profiles the abstract behavior of human interactions and generates naturalistic benign background traffic in a controlled environment to provide realistic traffic for cybersecurity research. It represents the behavior of 25 users over a five-day period, from Monday, July 3, 2017, to Friday, July 7, 2017. The data includes normal user activities as well as a variety of cyber-attacks with specific machines acting as the attackers and others as the victims. The data includes activities based on HTTP, HTTPS, FTP, SSH, and email protocols.
+This dataset was created to provide realistic traffic for cybersecurity research. It used a system which profiles the abstract behavior of human interactions and generates naturalistic benign background traffic in a controlled environment. It represents the behavior of 25 users over a five-day period, from Monday, July 3, 2017, to Friday, July 7, 2017. The data includes normal user activities as well as a variety of cyber-attacks with specific machines acting as the attackers and others as the victims. The data includes activities based on HTTP, HTTPS, FTP, SSH, and email protocols.
 
 On Monday, only normal user activities were recorded. From Tuesday to Friday, both normal activities and cyber-attacks were recorded. The cyber-attacks include Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet, and DDoS.
 
-Associated research paper: https://www.scitepress.org/papers/2018/66398/66398.pdf
+## Network Information :globe_with_meridians:
 
-# Goal:
+### Outsiders (Attackers network) :no_entry:
+Kali: 205.174.165.73   Win: 205.174.165.69      Win: 205.174.165.70
+                        Win: 205.174.165.71
+  |
+  |
+Firewall: 205.174.165.80, 172.16.0.1
+  |
+  |
+DNS+ DC Server: 192.168.10.3
+  |
+  |------------------------|------------------------|------------------------|
+  |                        |                        |
+### Insiders (Victim network) :house:
+Web server 16 Public: 192.168.10.50, 205.174.165.68
+Ubuntu server 12 Public: 192.168.10.51, 205.174.165.66
+Ubuntu 14.4, 32B: 192.168.10.19
+Ubuntu 14.4, 64B: 192.168.10.17
+Ubuntu 16.4, 32B: 192.168.10.16
+Ubuntu 16.4, 64B: 192.168.10.12
+Win 7 Pro, 64B: 192.168.10.9
+Win 8.1, 64B: 192.168.10.5
+Win Vista, 64B: 192.168.10.8
+Win 10, pro 32B: 192.168.10.14
+Win 10, 64B: 192.168.10.15
+MAC: 192.168.10.25
+
+[Research paper](https://www.scitepress.org/papers/2018/66398/66398.pdf)
+
+# Goal :dart:
 Analyze network traffic to detect any anomalies, indicators of compromise or suspicious activities.
 
-# Acquire:
-Downloaded files from: https://www.unb.ca/cic/datasets/ids-2017.html
+# Acquire :inbox_tray:
+[Files](https://www.unb.ca/cic/datasets/ids-2017.html)
 Five files in total:
 - Monday, Normal Activity, 11.0G
 - Tuesday, attacks + Normal Activity, 11G
@@ -20,7 +48,7 @@ Five files in total:
 - Thursday, attacks + Normal Activity, 7.8G
 - Friday, attacks + Normal Activity, 8.3G
 
-# Data Dictionary:
+# Data Dictionary :notebook:
 ## Terminology:
 | Terminology |	Definition |
 |:--------|:-----------|
