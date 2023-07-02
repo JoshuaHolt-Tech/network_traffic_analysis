@@ -1,3 +1,4 @@
+![Network Traffic Analysis] (network_analysis_cover.jpg)
 Network Traffic Analysis :satellite:
 
 # Abstract :book:
@@ -9,30 +10,32 @@ On Monday, only normal user activities were recorded. From Tuesday to Friday, bo
 ## Network Information :globe_with_meridians:
 
 ### Outsiders (Attackers network) :no_entry:
-Kali: 205.174.165.73   Win: 205.174.165.69      Win: 205.174.165.70
-                        Win: 205.174.165.71
+- Kali: 205.174.165.73
+- Win: 205.174.165.69
+- Win: 205.174.165.70
+- Win: 205.174.165.71
   |
   |
-Firewall: 205.174.165.80, 172.16.0.1
+- Firewall: 205.174.165.80, 172.16.0.1
   |
   |
-DNS+ DC Server: 192.168.10.3
+- DNS+ DC Server: 192.168.10.3
   |
   |------------------------|------------------------|------------------------|
   |                        |                        |
 ### Insiders (Victim network) :house:
-Web server 16 Public: 192.168.10.50, 205.174.165.68
-Ubuntu server 12 Public: 192.168.10.51, 205.174.165.66
-Ubuntu 14.4, 32B: 192.168.10.19
-Ubuntu 14.4, 64B: 192.168.10.17
-Ubuntu 16.4, 32B: 192.168.10.16
-Ubuntu 16.4, 64B: 192.168.10.12
-Win 7 Pro, 64B: 192.168.10.9
-Win 8.1, 64B: 192.168.10.5
-Win Vista, 64B: 192.168.10.8
-Win 10, pro 32B: 192.168.10.14
-Win 10, 64B: 192.168.10.15
-MAC: 192.168.10.25
+- Web server 16 Public: 192.168.10.50, 205.174.165.68
+- Ubuntu server 12 Public: 192.168.10.51, 205.174.165.66
+- Ubuntu 14.4, 32B: 192.168.10.19
+- Ubuntu 14.4, 64B: 192.168.10.17
+- Ubuntu 16.4, 32B: 192.168.10.16
+- Ubuntu 16.4, 64B: 192.168.10.12
+- Win 7 Pro, 64B: 192.168.10.9
+- Win 8.1, 64B: 192.168.10.5
+- Win Vista, 64B: 192.168.10.8
+- Win 10, pro 32B: 192.168.10.14
+- Win 10, 64B: 192.168.10.15
+- MAC: 192.168.10.25
 
 [Research paper](https://www.scitepress.org/papers/2018/66398/66398.pdf)
 
@@ -40,8 +43,7 @@ MAC: 192.168.10.25
 Analyze network traffic to detect any anomalies, indicators of compromise or suspicious activities.
 
 # Acquire :inbox_tray:
-[Files](https://www.unb.ca/cic/datasets/ids-2017.html)
-Five files in total:
+[Files](https://www.unb.ca/cic/datasets/ids-2017.html):
 - Monday, Normal Activity, 11.0G
 - Tuesday, attacks + Normal Activity, 11G
 - Wednesday, attacks + Normal Activity, 13G
