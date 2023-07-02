@@ -15,14 +15,12 @@ On Monday, only normal user activities were recorded. From Tuesday to Friday, bo
 - Win: 205.174.165.70
 - Win: 205.174.165.71 <br>
   |<br>
-  |<br>
 - Firewall: 205.174.165.80, 172.16.0.1<br>
-  |<br>
   |<br>
 - DNS+ DC Server: 192.168.10.3<br>
   |<br>
   |------------------------|------------------------|------------------------|<br>
-  |                        |                        |<br>
+  |<br>
 ### Insiders (Victim network) :house:
 - Web server 16 Public: 192.168.10.50, 205.174.165.68
 - Ubuntu server 12 Public: 192.168.10.51, 205.174.165.66
