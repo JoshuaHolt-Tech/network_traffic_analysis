@@ -1,4 +1,4 @@
-![Network Traffic Analysis] (network_analysis_cover.jpg)
+<img src="https://github.com/JoshuaHolt-Tech/network_traffic_analysis/blob/main/network_analysis_cover.jpg" alt="Network Traffic Analysis">
 Network Traffic Analysis :satellite:
 
 # Abstract :book:
