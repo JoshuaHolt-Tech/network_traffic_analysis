@@ -1,4 +1,4 @@
-![Network Traffic Analysis] (network_analysis_cover.jpg)
+![Network Traffic Analysis] (https://github.com/JoshuaHolt-Tech/network_traffic_analysis/blob/main/network_analysis_cover.jpg)
 Network Traffic Analysis :satellite:
 
 # Abstract :book:
