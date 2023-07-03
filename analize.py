@@ -3,34 +3,6 @@ from scapy.layers.inet import IP, TCP, UDP, ICMP
 from scapy.packet import Packet
 import pandas as pd
 
-def print_packet_info(packets: list[Packet]):
-    for packet in packets:
-        try:
-            # Print Ethernet layer (MAC addresses)
-            if packet.haslayer(Ether):
-                print(f"Source MAC: {packet[Ether].src}, Destination MAC: {packet[Ether].dst}")
-
-            # Print IP layer (IP addresses)
-            if packet.haslayer(IP):
-                print(f"Source IP: {packet[IP].src}, Destination IP: {packet[IP].dst}")
-
-            # Print TCP layer (port numbers)
-            if packet.haslayer(TCP):
-                print(f"Source Port: {packet[TCP].sport}, Destination Port: {packet[TCP].dport}")
-
-            # Print UDP layer (port numbers)
-            if packet.haslayer(UDP):
-                print(f"Source Port: {packet[UDP].sport}, Destination Port: {packet[UDP].dport}")
-
-            # Print ICMP layer (type and code)
-            if packet.haslayer(ICMP):
-                print(f"Type: {packet[ICMP].type}, Code: {packet[ICMP].code}")
-
-            print("\n---\n")
-
-        except Exception as e:
-            print(f"Error when processing packet: {e}")
-
 def get_ioc_counts(chunk):
     """
     Checks a chunk of packets for indicators of compromise.
@@ -62,9 +34,15 @@ def get_ioc_counts(chunk):
 
 def set_threshold(packet_counts, sigma_value = 3, default_threshold = 25, print_stats = False):
     """
-
+    Looks at the quantities associated with packets in a capture and establishes a threshold to flag packets at.
+    Sigma_value:
+    - 0.5 = 38.29%
+    - 1.0 = 68.27%
+    - 2.0 = 95.45%
+    - 3.0 = 99.73%
+    - 4.0 = 99.99%
     """
-    #Setting the threshold at 99.7% to identify packets:
+    #Setting the threshold to identify packets:
     if len(packet_counts) < 2:
         threshold = default_threshold
     else:
@@ -79,13 +57,13 @@ def set_threshold(packet_counts, sigma_value = 3, default_threshold = 25, print_
 
 def eval_packets(threshold, packet_counts, print_stats = False):
     """
-
+    Evaluates packet contents against threshold, creates and returns a set. The set should be used to identify and extract suspect packets from the capture.
     """
     #Checking packets against thresholds:
     suspicious = []
     #DNS
-    for sus_item, occurrences in dns_counts.items():
-        if occurrences < dns_threshold:
+    for sus_item, occurrences in packet_counts.items():
+        if occurrences < threshold:
             continue
         suspicious.append(sus_item)
     if print_stats == True:
@@ -94,7 +72,7 @@ def eval_packets(threshold, packet_counts, print_stats = False):
 
 def packets_to_dataframe(packets: list[Packet]):
     """
-
+    Extracts MAC IDs, IPs, ports and ICMP information from captured packets and returns a Pandas DataFrame.
     """
     packet_info = []
     for packet in packets:
