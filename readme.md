@@ -7,8 +7,9 @@ This dataset was created to provide realistic traffic for cybersecurity research
 
 On Monday, only normal user activities were recorded. From Tuesday to Friday, both normal activities and cyber-attacks were recorded. The cyber-attacks include Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet, and DDoS.
 
+ ## Network Information :globe_with_meridians:
 <details>
-  <summary> ## Network Information :globe_with_meridians:  </summary>
+  <summary> Topology </summary>
 
 ### Outsiders (Attackers network) :no_entry:
 - Kali: 205.174.165.73
@@ -38,6 +39,7 @@ On Monday, only normal user activities were recorded. From Tuesday to Friday, bo
 
 [Research paper](https://www.scitepress.org/papers/2018/66398/66398.pdf)
 </details>
+
 # Goal :dart:
 Analyze network traffic to detect any anomalies, indicators of compromise or suspicious activities.
 
@@ -51,7 +53,8 @@ Analyze network traffic to detect any anomalies, indicators of compromise or sus
 
 # Data Dictionary :notebook:
 <details>
-  <summary> ## Terminology:  </summary>
+  <summary> Terminology:  </summary>
+
 | Terminology |	Definition |
 |:--------|:-----------|
 | Flow | A sequence of packets sent from a source to a destination, like a conversation or a session between two systems |
@@ -84,7 +87,8 @@ Analyze network traffic to detect any anomalies, indicators of compromise or sus
 
 
 <details>
-  <summary> ## Data Column Descriptions: </summary>
+  <summary> Data Column Descriptions: </summary>
+
 | Feature |	Description |
 |:--------|:-----------|
 | Destination Port | The port number where the conversation is directed |
