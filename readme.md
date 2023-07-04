@@ -7,7 +7,9 @@ This dataset was created to provide realistic traffic for cybersecurity research
 
 On Monday, only normal user activities were recorded. From Tuesday to Friday, both normal activities and cyber-attacks were recorded. The cyber-attacks include Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet, and DDoS.
 
-## Network Information :globe_with_meridians:
+ ## Network Information :globe_with_meridians:
+<details>
+  <summary> Topology </summary>
 
 ### Outsiders (Attackers network) :no_entry:
 - Kali: 205.174.165.73
@@ -36,6 +38,7 @@ On Monday, only normal user activities were recorded. From Tuesday to Friday, bo
 - MAC: 192.168.10.25
 
 [Research paper](https://www.scitepress.org/papers/2018/66398/66398.pdf)
+</details>
 
 # Goal :dart:
 Analyze network traffic to detect any anomalies, indicators of compromise or suspicious activities.
@@ -49,7 +52,9 @@ Analyze network traffic to detect any anomalies, indicators of compromise or sus
 - Friday, attacks + Normal Activity, 8.3G
 
 # Data Dictionary :notebook:
-## Terminology:
+<details>
+  <summary> Terminology:  </summary>
+
 | Terminology |	Definition |
 |:--------|:-----------|
 | Flow | A sequence of packets sent from a source to a destination, like a conversation or a session between two systems |
@@ -78,8 +83,12 @@ Analyze network traffic to detect any anomalies, indicators of compromise or sus
 | TCP:PA Flag | PSH, ACK combined flags indicate that the sender wants to push the data to the receiving application immediately and is acknowledging the data received from the other side.|
 | TCP:S Flag | SYN flag is used to initiate a connection between hosts.|
 | TCP:SEC Flag | SYN, ECE, CWR combined flags are used during the initial handshake to indicate that the sender is ECN capable and has received a TCP segment with the ECE flag set, and had reduced its congestion window size in response.|
+</details>
 
-## Data Column Descriptions:
+
+<details>
+  <summary> Data Column Descriptions: </summary>
+
 | Feature |	Description |
 |:--------|:-----------|
 | Destination Port | The port number where the conversation is directed |
@@ -160,3 +169,4 @@ Analyze network traffic to detect any anomalies, indicators of compromise or sus
 | Idle Max | The longest period when no data is being sent or received |
 | Idle Min | The shortest period when no data is being sent or received |
 | Label | The label indicating BENIGN or the type of attack |
+</details>
