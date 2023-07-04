@@ -1,9 +1,13 @@
 from scapy.layers.l2 import Ether
 from scapy.layers.inet import IP, TCP, UDP, ICMP
 from scapy.packet import Packet
+from scapy.all import *
+from scapy.utils import PcapReader
+import pandas as pd
+import numpy as np
 import pandas as pd
 
-def get_ioc_counts(chunk):
+def get_ioc_counts(chunk, pcap_file = None):
     """
     Checks a chunk of packets for indicators of compromise.
     Returns a counts dictionary for each indicator (3 so far).
@@ -11,9 +15,9 @@ def get_ioc_counts(chunk):
     dns_counts = {}
     ip_counts = {}
     seq_counts = {}
-    
+    #captured_packets = PcapReader(pcap_file)
     #Looking for indicators of compromise in pcap:
-    for packet in captured_packets:
+    for packet in chunk:
         if packet.haslayer(IP):
             #DNS replies that contain no answer (NXDOMAIN errors):
             if packet.haslayer(DNS) and (packet[DNS].qr == 1) and (packet[DNS].ancount == 0):
@@ -28,6 +32,10 @@ def get_ioc_counts(chunk):
         if packet.haslayer(TCP):
             seq = packet[TCP].seq
             seq_counts[seq] = seq_counts.get(seq, 0) + 1
+    #Doing some checks        
+    print(f"DNS counts: {len(dns_counts)}")
+    print(f"IP counts: {len(ip_counts)}")
+    print(f"SEQ counts: {len(seq_counts)}")
     
     return dns_counts, ip_counts, seq_counts
 
