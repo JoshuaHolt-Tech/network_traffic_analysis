@@ -6,6 +6,8 @@ from scapy.utils import PcapReader
 import pandas as pd
 import numpy as np
 import pandas as pd
+import statistics
+
 
 def get_ioc_counts(chunk, pcap_file = None):
     """
@@ -55,7 +57,7 @@ def set_threshold(packet_counts, sigma_value = 3, default_threshold = 25, print_
         threshold = default_threshold
     else:
         mean = statistics.mean(packet_counts.values())
-        stddev = statistics.stdev(packet_counts.values())
+        stdev = statistics.stdev(packet_counts.values())
         threshold = mean + sigma_value * stdev
     if print_stats == True:
         print(f"The threshold is: {threshold}")
