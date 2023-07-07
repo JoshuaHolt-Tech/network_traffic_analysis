@@ -3,11 +3,12 @@ from scapy.layers.inet import IP, TCP, UDP, ICMP
 from scapy.packet import Packet
 from scapy.all import *
 from scapy.utils import PcapReader
+from collections import Counter
 import pandas as pd
 import numpy as np
 import pandas as pd
 import statistics
-
+import psutil
 
 def get_ioc_counts(chunk, pcap_file = None):
     """
@@ -38,9 +39,37 @@ def get_ioc_counts(chunk, pcap_file = None):
     print(f"DNS counts: {len(dns_counts)}")
     print(f"IP counts: {len(ip_counts)}")
     print(f"SEQ counts: {len(seq_counts)}")
-    
+    print(f"Available memory: {psutil.virtual_memory()[1]/1_000_000_000:.3f} GB")
     return dns_counts, ip_counts, seq_counts
 
+
+def get_ioc_counts0(chunk, pcap_file = None):
+    """
+    Checks a chunk of packets for indicators of compromise.
+    Returns a counts dictionary for each indicator (3 so far).
+    """
+    dns_counts = Counter()
+    ip_counts = Counter()
+    seq_counts = Counter()
+
+    for packet in chunk:
+        if packet.haslayer(IP):
+            if packet.haslayer(DNS) and (packet[DNS].qr == 1) and (packet[DNS].ancount == 0):
+                dns = packet[IP].dst
+                dns_counts[dns] += 1
+
+            ip = packet[IP].src
+            ip_counts[ip] += 1
+
+        if packet.haslayer(TCP):
+            seq = packet[TCP].seq
+            seq_counts[seq] += 1
+
+    print(f"DNS counts: {len(dns_counts)}")
+    print(f"IP counts: {len(ip_counts)}")
+    print(f"SEQ counts: {len(seq_counts)}")
+    print(f"Available memory: {psutil.virtual_memory()[1]/1_000_000_000:.3f} GB")
+    return dns_counts, ip_counts, seq_counts
 
 def set_threshold(packet_counts, sigma_value = 3, default_threshold = 25, print_stats = False):
     """
