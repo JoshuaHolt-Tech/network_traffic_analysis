@@ -1,3 +1,6 @@
+import pandas as pd
+import numpy as np
+
 def fixing_col_names(df):
     """
     This function removes leading whitespace, '/s' characters and replaces spaces with '_'.
